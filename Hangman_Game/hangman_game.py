@@ -8,7 +8,7 @@ BANDAS_KPOP = [
     'dreamcatcher', 'cix', 'wjsn', 'sf9', 'the boyz', 'loona', 'gidle', 'nuest',
     'golden child', 'weeekly', 'rocket punch', 'onf', 'fromis 9', 'cravity', 'above us',
     'lunarsolar', 't1419', 'stayc', 'enhypen', 'brave girls', 'woodz', 'weeekly', 'new jeans',
-    'ive', 'le sserafim', 'sistar', 'hyolyn', 'itzy', 'nmixx'
+    'ive', 'le sserafim', 'sistar', 'hyolyn', 'itzy', 'nmixx', 'bangtan'
 ]
 
 HANGMAN_PICS = [
