@@ -2,8 +2,9 @@
 # This is my version of the program.
 
 # Credits for ASCII Art
-# Drawing: https://ascii.co.uk/art/gavel
-# Text: https://ascii.co.uk/art/auction
+# Text: https://ascii.co.uk/art/blackjack
+
+import os
 
 def display_Ascii_text():
     print('''
@@ -17,7 +18,22 @@ def display_Ascii_text():
                           |__/
     ''')
 
-display_Ascii_text()
+def limpiar_pantalla():
+    # Comando para limpiar la pantalla en sistemas basados en Unix (Linux y macOS)
+    if os.name == 'posix':
+        os.system('clear')
+    # Comando para limpiar la pantalla en sistemas basados en Windows
+    elif os.name == 'nt':
+        os.system('cls')
+
+def imprimir_bienvenida():
+    pass
 
 # Assuming that we have an infinite deck
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10] # The value of 11 can change based on whether the result is above or below 21.
+continuar = True
+
+while continuar ==True:
+    limpiar_pantalla()
+    display_Ascii_text()
+    imprimir_bienvenida()
