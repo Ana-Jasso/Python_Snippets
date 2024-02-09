@@ -45,7 +45,6 @@ def limpiar_pantalla():
     # Comando para limpiar la pantalla en sistemas basados en Windows
     elif os.name == 'nt':
         os.system('cls')
-    # Otros sistemas operativos podrían necesitar comandos adicionales
 
 def recolectar_informacion(diccionario, clave, oferta):
     diccionario[clave] = int(oferta)
