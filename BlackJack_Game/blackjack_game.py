@@ -91,5 +91,5 @@ while continuar == True:
         print("Please enter a valid response (y/n).")
         seguir_jugando = input('¿Quieres seguir jugando? (y/n): ')
     
-    if seguir_jugando not in ['yes', 'y', 'sure']:
+    if seguir_jugando.lower() not in ['yes', 'y', 'sure']:
         continuar = False
