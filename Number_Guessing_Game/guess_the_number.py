@@ -4,6 +4,8 @@
 # Credits for ASCII Art
 # Text: https://patorjk.com/software/taag/#p=display&f=Big&t=Number%20Guessing%20Game 
 
+import random
+
 def print_hangman_word():
     ascii_art = '''
     _
@@ -16,3 +18,57 @@ def print_hangman_word():
                     |___/
     '''
     print(ascii_art)
+
+def evaluar_numero(guess, real):
+    if guess > real:
+        print('¡Muy alto!')
+        return False
+    elif guess < real:
+        print('¡Muy bajo!')
+        return False
+    else:
+        print('¡Has acertado!')
+        return True
+
+def jugar(attempts, numero):
+    evaluacion = False
+    while not evaluacion:
+        if attempts > 0:
+            print(f'You have {attempts} attempts remaining to guess the number.')
+            try:
+                input_user = int(input('Make a guess: '))
+            except ValueError:
+                print("Please enter a number.")
+                continue
+
+            evaluacion = evaluar_numero(input_user, numero)
+            attempts -= 1
+        else:
+            print('Se acabaron los intentos.')
+            break
+    print(f'El número era: {numero}')
+
+continuar = True
+
+while continuar == True:
+    numero_aleatorio = random.randint(1, 100)
+
+    seleccionar_dificultad = input('Elige la difficultad (hard/easy): ')
+    while seleccionar_dificultad.lower() not in ['hard', 'easy']:
+        print("Please enter a valid response (y/n).")
+        seleccionar_dificultad = input('Elige la difficultad (hard/easy): ')
+    
+    if seleccionar_dificultad == 'hard':
+        attempts = 5
+    else:
+        attempts = 10
+    
+    jugar(attempts, numero_aleatorio)
+
+    seguir_jugando = input('¿Quieres seguir jugando? (y/n): ')
+    while seguir_jugando.lower() not in ['yes', 'y', 'no', 'n', 'sure']:
+        print("Please enter a valid response (y/n).")
+        seguir_jugando = input('¿Quieres seguir jugando? (y/n): ')
+    
+    if seguir_jugando.lower() not in ['yes', 'y', 'sure']:
+        continuar = False
