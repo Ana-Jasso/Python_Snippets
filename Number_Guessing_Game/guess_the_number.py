@@ -5,19 +5,28 @@
 # Text: https://patorjk.com/software/taag/#p=display&f=Big&t=Number%20Guessing%20Game 
 
 import random
+import os
 
-def print_hangman_word():
+def print_ASCII():
     ascii_art = '''
-    _
-    | |
-    | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
-    | '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\
-    | | | | (_| | | | | (_| | | | | | | (_| | | | |
-    |_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|
-                        __/ |
-                    |___/
+  _   _                 _                  _____                     _                _____                      
+ | \ | |               | |                / ____|                   (_)              / ____|                     
+ |  \| |_   _ _ __ ___ | |__   ___ _ __  | |  __ _   _  ___  ___ ___ _ _ __   __ _  | |  __  __ _ _ __ ___   ___ 
+ | . ` | | | | '_ ` _ \| '_ \ / _ \ '__| | | |_ | | | |/ _ \/ __/ __| | '_ \ / _` | | | |_ |/ _` | '_ ` _ \ / _ \ 
+ | |\  | |_| | | | | | | |_) |  __/ |    | |__| | |_| |  __/\__ \__ \ | | | | (_| | | |__| | (_| | | | | | |  __/
+ |_| \_|\__,_|_| |_| |_|_.__/ \___|_|     \_____|\__,_|\___||___/___/_|_| |_|\__, |  \_____|\__,_|_| |_| |_|\___|
+                                                                              __/ |                              
+                                                                             |___/                    
     '''
     print(ascii_art)
+
+def limpiar_pantalla():
+    # Comando para limpiar la pantalla en sistemas basados en Unix (Linux y macOS)
+    if os.name == 'posix':
+        os.system('clear')
+    # Comando para limpiar la pantalla en sistemas basados en Windows
+    elif os.name == 'nt':
+        os.system('cls')
 
 def evaluar_numero(guess, real):
     if guess > real:
@@ -51,6 +60,8 @@ def jugar(attempts, numero):
 continuar = True
 
 while continuar == True:
+    limpiar_pantalla()
+    print_ASCII()
     numero_aleatorio = random.randint(1, 100)
 
     seleccionar_dificultad = input('Elige la difficultad (hard/easy): ')
