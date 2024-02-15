@@ -10,10 +10,6 @@ import random
 from ASCII_drawings import game_name, vs
 from game_data import data
 
-# print(game_name)
-# print(data[0])
-# print(vs)
-
 def limpiar_pantalla():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -57,7 +53,7 @@ while continuar:
     print(current_score_text)
 
     resultado = new_comparison()
-
+    
     if resultado:
         current_score += 1
         current_score_text = f"You're right! Current Score: {current_score}"
