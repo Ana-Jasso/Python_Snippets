@@ -23,22 +23,53 @@ def limpiar_pantalla():
         os.system('cls')
 
 def obtener_dos_elementos_diferentes(lista):
-    elemento_1 = random.choice(lista)
-    elemento_2 = random.choice(lista)
+    elementos = random.sample(lista, 2)
+    return elementos[0], elementos[1]
+
+def solicitar_respuesta():
+    # Solicitar respuesta, siempre será tomada en mayúsculas
+    answer = input('Who has more followers? Type "A" or "B": ').upper()
+    while answer not in ['A', 'B']:
+        print("Please enter a valid response (A/B).")
+        answer = input('Who has more followers? Type "A" or "B": ').upper()
+    return answer
+
+def new_comparison():
+    A, B = obtener_dos_elementos_diferentes(data)
+    print(f"Compare A: {A['name']}, a {A['description']}, from {A['country']}.")
+    print(vs)
+    print(f"Against B: {B['name']}, a {B['description']}, from {B['country']}.")
     
-    while elemento_2 == elemento_1:
-        elemento_2 = random.choice(lista)
+    if A['follower_count'] >= B['follower_count']:
+        respuesta_correcta = 'A'
+    else:
+        respuesta_correcta = 'B'
     
-    return elemento_1, elemento_2
+    # Verificar si el user ganó para devolver el resultado.
+    respuesta = solicitar_respuesta()
+    if respuesta == respuesta_correcta:
+        return True
+    else:
+        return False
 
 continuar = True
+current_score = 0
+current_score_text = ''
 
 while continuar:
     limpiar_pantalla()
     print(game_name)
-    A, B = obtener_dos_elementos_diferentes(data)
-    print(A)
-    print(B)
-    #print(f'Compare A: {data['name']}')
-    print(vs)
-    continuar = False
+    print(current_score_text)
+
+    resultado = new_comparison()
+
+    if resultado:
+        current_score += 1
+        current_score_text = f"You're right! Current Score: {current_score}"
+        continuar = True
+    else:
+        continuar = False
+
+limpiar_pantalla()
+print(game_name)
+print(f"Sorry, that's wrong. Final score: {current_score}")
