@@ -5,8 +5,9 @@
 # Text1: https://patorjk.com/software/taag/#p=display&f=Crawford2&t=Higher-Lower%0A%20%20%20%20%20%20Game
 # Text2: https://patorjk.com/software/taag/#p=display&f=Crawford2&t=VS
 
-import ASCII_drawings as draw # Alias para que el nombre sea más corto
-import game_data
+from ASCII_drawings import game_name, vs # Alias para que el nombre sea más corto
+from game_data import data
 
-print(draw.game_name)
-print(game_data.data[0])
+print(game_name)
+print(data[0])
+print(vs)
