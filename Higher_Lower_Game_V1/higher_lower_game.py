@@ -15,12 +15,7 @@ from game_data import data
 # print(vs)
 
 def limpiar_pantalla():
-    # Comando para limpiar la pantalla en sistemas basados en Unix (Linux y macOS)
-    if os.name == 'posix':
-        os.system('clear')
-    # Comando para limpiar la pantalla en sistemas basados en Windows
-    elif os.name == 'nt':
-        os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def obtener_dos_elementos_diferentes(lista):
     elementos = random.sample(lista, 2)
