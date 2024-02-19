@@ -1,3 +1,6 @@
+# Hello, this code is from Dr. Angela Yu's course, which you can find on Udemy: https://www.udemy.com/course/100-days-of-code/
+# This is my version of the program.
+
 from data import question_data
 from question_model import Question
 from quiz_brain import QuizBrain
