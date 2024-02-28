@@ -9,7 +9,6 @@ screen.title('Snake Game')
 screen.tracer(0)
 
 snake = Snake()
-screen.update()
 
 game_is_on = True
 while(game_is_on):
