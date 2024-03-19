@@ -3,6 +3,7 @@
 
 from turtle import *
 from paddle import Paddle
+from ball import Ball
 import time
 
 screen = Screen()
@@ -13,6 +14,7 @@ screen.tracer(0)
 
 right_paddle = Paddle(x_pos=350, y_pos=0)
 left_paddle = Paddle(x_pos=-350, y_pos=0)
+ball = Ball(x_pos=0, y_pos=0)
 
 screen.listen()
 screen.onkeypress(right_paddle.move_up, 'Up')
