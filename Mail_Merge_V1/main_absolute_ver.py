@@ -10,17 +10,17 @@
     #Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
         #Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 
-letter_file_path = 'Mail_Merge_V1\Input\Letters\starting_letter.txt'
+letter_file_path = r'\anala\Github\Python_Snippets\Mail_Merge_V1\Input\Letters\starting_letter.txt'
 with open(letter_file_path, mode='r') as letter_data:
     letter = letter_data.read()
 
-names_file_path = r'Mail_Merge_V1\Input\Names\invited_names.txt'
+names_file_path = r'\anala\Github\Python_Snippets\Mail_Merge_V1\Input\Names\invited_names.txt'
 with open(names_file_path, mode='r') as names_data:
     names_str = names_data.read()
 
 names_list = names_str.split('\n')
 
-letters_saving_route = 'Mail_Merge_V1\Output\ReadyToSend_relative_ver'
+letters_saving_route = r'\anala\Github\Python_Snippets\Mail_Merge_V1\Output\ReadyToSend_absolute_ver'
 
 for name in names_list:
     new_letter = letter.replace("[name]", name)
