@@ -25,10 +25,12 @@ number_of_states = df_US_states.shape[0]
 correct_answers = 0
 answers_list = []
 
-while correct_answers <= number_of_states:
-    answer_input = screen.textinput(title=f'Guess the state {correct_answers}/{number_of_states}', prompt="What's another state name?").capitalize()
+while correct_answers < number_of_states:
+    answer_input = screen.textinput(title=f'Guess the state {correct_answers}/{number_of_states}', prompt="What's another state name?").title()
     states = df_US_states['state'].values
-    if (answer_input in states) and (answer_input not in answers_list):
+    if answer_input == 'Exit':
+        break
+    elif (answer_input in states) and (answer_input not in answers_list):
 
         x_coor = df_US_states['x'][df_US_states['state']==answer_input].iloc[0]
         y_coor = df_US_states['y'][df_US_states['state']==answer_input].iloc[0]
@@ -39,12 +41,8 @@ while correct_answers <= number_of_states:
         t.goto(coordinates)
         t.write(answer_input)
 
-        print(coordinates)
-        print(type(coordinates))
         answers_list.append(answer_input)
         correct_answers += 1
 
-# END
-screen.onscreenclick(get_mouse_click_coor)
+screen.title('U.S. States Game -- Result')
 turtle.mainloop()
-screen.exitonclick()
