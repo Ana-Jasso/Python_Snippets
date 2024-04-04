@@ -17,18 +17,22 @@ turtle.shape(image)
 
 # Data
 df_US_states = pd.read_csv(r'US_States_Game_V1\50_states.csv')
-print(df_US_states.shape[0])
 
 
 # While Loop
 number_of_states = df_US_states.shape[0]
 correct_answers = 0
 answers_list = []
+states = df_US_states['state'].tolist()
 
 while correct_answers < number_of_states:
     answer_input = screen.textinput(title=f'Guess the state {correct_answers}/{number_of_states}', prompt="What's another state name?").title()
-    states = df_US_states['state'].values
     if answer_input == 'Exit':
+        missing_states = [missing_state for missing_state in states if (missing_state not in answers_list)]
+        with open(r'US_States_Game_V1\missing_states.txt', 'w') as archivo:
+            archivo.write("US states to review:\n")
+            for missing_state in missing_states:
+                archivo.write(f"{missing_state}\n")
         break
     elif (answer_input in states) and (answer_input not in answers_list):
 
